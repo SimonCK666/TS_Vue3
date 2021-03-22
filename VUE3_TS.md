@@ -138,6 +138,95 @@ tsc --init
 
 #### 类型注解 （Type annotations）
 
+```typescript
+// 类型注解：一种轻量级的为函数或者变量添加的约束
+
+(()=>{
+    // str 是 string 类型
+    function showMsg(str:string) {
+        return '床前明月光' + str
+    }
+    let msg = '疑是地上霜'
+
+    // msg 是一个数组
+    // let msg = [10, 20, 30]
+
+    // 如果是数组的类型，就会出错
+    console.log(showMsg(msg))
+})()
+```
+
+#### 接口（Interface）
+
+```typescript
+// 接口：一种能力，一种约束
+
+(()=>{
+    // 定义一个接口
+    interface IPerson{
+        firstName:string    // 姓氏
+        lastName:string     // 名字
+    }
+
+    // 输出姓名
+    function showFullName(person:IPerson) {
+        return person.firstName + '_' + person.lastName
+    }
+
+    // 定义一个对象
+    const person = {
+        firstName: '东方',
+        lastName: '不败'
+    }
+
+    console.log(showFullName(person))
+})()
+```
+
+#### 类
+
+```typescript
+// ts 中书写 js 中的类
+
+(()=>{
+    // 定义一个接口
+    interface IPerson{
+        firstName:string    // 姓氏
+        lastName:string     // 名字
+    }
+
+    // 定义一个类
+    class Person {
+        // 定义公共姿端（属性）
+        firstName:string
+        lastName:string
+        fullName:string
+        // 定义一个构造器函数
+        constructor(firstName:string, lastName:string) {
+            // 更新属性数据
+            this.firstName = firstName
+            this.lastName = lastName
+            // 姓名
+            this.fullName = this.firstName + '_' + this.lastName
+        }
+    }
+
+    // 定义一个函数
+    function showFullName(person:IPerson) {
+        return person.firstName + '_' + person.lastName
+    }
+
+    // 实例化对象
+    const person = new Person('诸葛', '孔明')
+
+    console.log(showFullName(person))
+})()
+```
+
+### 4. 使用 webpack 大包 TS
+
+> 细节：https://24kcs.github.io/vue3_study/chapter1/04_webpack%E6%89%93%E5%8C%85.html#%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96
+
 
 
 

@@ -1,0 +1,1 @@
+document.write('haha, i am hahaha')

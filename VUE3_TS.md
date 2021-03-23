@@ -227,6 +227,39 @@ tsc --init
 
 > 细节：https://24kcs.github.io/vue3_study/chapter1/04_webpack%E6%89%93%E5%8C%85.html#%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96
 
+- 完成 \build  \src  \public 中文件
+- 进行配置
+
+```sh
+npm init -y
+```
+
+```sh
+tsc --init
+```
+
+- 下载依赖
+
+> 需要注意三个包的版本问题
+
+```sh
+npm install -D webpack@4.41.5 webpack-cli@3.3.10 webpack-dev-server@3.10.2
+```
+
+
+
+- 配置打包命令
+
+```json
+package.json
+"scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.js",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.config.js"
+  },
+```
+
+## 二、TypeScript 基本语法
+
 
 
 
@@ -247,4 +280,15 @@ fatal: unable to access 'https://github.com/SimonCK666/TS_Vue3.git/': Unsupporte
 git config --global http.sslBackend "openssl"
 git config --global http.sslCAInfo "D:\Git\mingw64\ssl\cert.pem"
 ```
+
+解决
+
+```sh
+git config --global http.proxy http://proxyuser:proxypwd@proxy.server.com:8080
+git config --global --unset http.proxy
+git config --global --get http.proxy
+git push -u origin main
+```
+
+
 
